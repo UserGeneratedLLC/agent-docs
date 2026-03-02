@@ -1,0 +1,77 @@
+name: Sync Documentation Sources
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-sources
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Sync documentation repos
+        run: |
+          sync_repo() {
+            local owner=$1 repo=$2 branch=$3 subdir=$4 target=$5
+
+            echo "::group::Sync $owner/$repo ($subdir -> $target)"
+            local url="https://github.com/$owner/$repo/archive/refs/heads/$branch.tar.gz"
+            local tmp="/tmp/sync-$repo"
+
+            mkdir -p "$tmp"
+            echo "Downloading $url"
+            curl -sL "$url" -o "$tmp/archive.tar.gz"
+
+            echo "Extracting..."
+            tar -xzf "$tmp/archive.tar.gz" -C "$tmp"
+
+            local extracted="$tmp/$repo-$branch/$subdir"
+            if [ ! -d "$extracted" ]; then
+              echo "::error::Source subdirectory '$subdir' not found in $owner/$repo archive"
+              exit 1
+            fi
+
+            rm -rf "$target"
+            mv "$extracted" "$target"
+            rm -rf "$tmp"
+            echo "Done: $target"
+            echo "::endgroup::"
+          }
+
+          sync_repo "luau-lang" "rfcs"         "master" "docs"             "luau-rfcs"
+          sync_repo "luau-lang" "site"          "master" "src/content/docs" "luau"
+          sync_repo "Roblox"    "creator-docs"  "main"   "content"          "roblox"
+          sync_repo "centau"    "vide"           "main"   "docs"             "vide"
+
+      - name: Sync Roblox API dump
+        run: |
+          echo "Resolving latest build GUID..."
+          GUID=$(curl -s "https://raw.githubusercontent.com/RobloxAPI/build-archive/master/data/production/latest.json" | jq -r '.GUID')
+          echo "GUID: $GUID"
+
+          mkdir -p roblox-api
+          curl -sL "https://raw.githubusercontent.com/RobloxAPI/build-archive/master/data/production/builds/$GUID/Full-API-Dump.json" \
+            -o roblox-api/Full-API-Dump.json
+          echo "Done: roblox-api/Full-API-Dump.json"
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "sync: update documentation sources ($(date -u '+%Y-%m-%d %H:%M UTC'))"
+            git push
+          fi
