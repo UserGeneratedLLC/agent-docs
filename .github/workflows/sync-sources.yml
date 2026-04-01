@@ -55,13 +55,27 @@ jobs:
 
       - name: Sync Roblox API dump
         run: |
-          echo "Resolving latest build GUID..."
-          GUID=$(curl -s "https://raw.githubusercontent.com/RobloxAPI/build-archive/master/data/production/latest.json" | jq -r '.GUID')
+          BASE="https://raw.githubusercontent.com/RobloxAPI/build-archive/master/data/production"
+
+          echo "Resolving latest build GUID with Full-API-Dump.json available..."
+          GUID=$(curl -sf "$BASE/metadata.json" | jq -r '
+            [.Missing // {} | to_entries[] | select(.value | index("Full-API-Dump.json")) | .key] as $missing |
+            [.Builds[] | select(.GUID as $g | $missing | index($g) | not)] | last | .GUID
+          ')
+
+          if [ -z "$GUID" ] || [ "$GUID" = "null" ]; then
+            echo "::error::Failed to resolve a valid build GUID from metadata.json"
+            exit 1
+          fi
           echo "GUID: $GUID"
 
           mkdir -p roblox-api
-          curl -sL "https://raw.githubusercontent.com/RobloxAPI/build-archive/master/data/production/builds/$GUID/Full-API-Dump.json" \
-            -o roblox-api/Full-API-Dump.json
+          curl -sfL "$BASE/builds/$GUID/Full-API-Dump.json" -o roblox-api/Full-API-Dump.json
+
+          if ! jq empty roblox-api/Full-API-Dump.json 2>/dev/null; then
+            echo "::error::Downloaded Full-API-Dump.json is not valid JSON"
+            exit 1
+          fi
           echo "Done: roblox-api/Full-API-Dump.json"
 
       - name: Commit and push
