@@ -68,6 +68,32 @@ methods:
     thread_safety: Unsafe
     capabilities:
       - Monetization
+  - name: AdService:GetCampaignEligibilityAsync
+    summary: 'Checks whether users are eligible to see ad integration assets.'
+    description: 'Checks whether users are eligible to see ad integration assets.'
+    code_samples: []
+    parameters:
+      - name: campaignId
+        type: string
+        default:
+        summary: |
+          The ID of the campaign for which you want to check a `Player`'s eligibility.
+      - name: player
+        type: Player?
+        default: nil
+        summary: |
+          The `Player` whose eligibility you want to check for. If omitted, it defaults to `Players.LocalPlayer`.
+    returns:
+      - type: Dictionary
+        summary: |
+          A dictionary like `{ IsEligible: boolean }`.
+    tags:
+      - Yields
+    deprecation_message: ''
+    security: None
+    thread_safety: Unsafe
+    capabilities:
+      - Monetization
   - name: AdService:RegisterAdOpportunityAsync
     summary: |
       Tracks how many times a user had the chance to watch a video ad and the
@@ -92,6 +118,30 @@ methods:
         summary: ''
     tags:
       - Yields
+    deprecation_message: ''
+    security: None
+    thread_safety: Unsafe
+    capabilities:
+      - Monetization
+  - name: AdService:RegisterDisclosureButton
+    summary: 'Enables interactive disclosure when a user clicks or taps an ad integration label, providing additional information about the ad.'
+    description: 'Enables interactive disclosure when a user clicks or taps an ad integration label, providing additional information about the ad.'
+    code_samples: []
+    parameters:
+      - name: disclosureButton
+        type: GuiButton
+        default:
+        summary: |
+          The `GuiButton` to use as an ad disclosure.
+      - name: adIntegrationPlacementId
+        type: string
+        default:
+        summary: |
+          The ID of the placement the disclosure is attached to.
+    returns:
+      - type: ()
+        summary: ''
+    tags: []
     deprecation_message: ''
     security: None
     thread_safety: Unsafe
