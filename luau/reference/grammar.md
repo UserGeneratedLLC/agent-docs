@@ -2,7 +2,7 @@
 slug: grammar
 title: Syntax Grammar
 sidebar:
-  order: 3
+  order: 4
 ---
 
 This is the complete syntax grammar for Luau in EBNF. More information about the terminal nodes STRING and NUMBER
@@ -23,6 +23,8 @@ stat ::= varlist '=' explist |
     attributes 'function' funcname funcbody |
     attributes 'local' 'function' NAME funcbody |
     'local' bindinglist ['=' explist] |
+    'const' 'function' NAME funcbody |
+    'const' bindinglist '=' explist |
     ['export'] 'type' NAME ['<' GenericTypeListWithDefaults '>'] '=' Type |
     ['export'] 'type' 'function' NAME funcbody
 

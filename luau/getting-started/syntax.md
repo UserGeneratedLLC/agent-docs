@@ -197,6 +197,73 @@ return {}
 
 For more information please refer to [typechecking documentation](../types).
 
+## Const bindings
+
+Luau supports `const` declarations for local variable bindings. A `const` binding works like `local`, but prevents reassignment after initialization, making the binding itself immutable.
+
+```luau
+const x = 5
+x = 10 -- error: cannot assign to a const variable
+```
+
+This restriction applies to all assignment forms, including compound assignment, and when nested inside other scopes:
+
+```luau
+const counter = 0
+counter += 1 -- error: cannot assign to a const variable
+
+local function f()
+    counter += 1 -- error: cannot assign to a const variable
+end
+
+if condition then
+    counter += 1 -- error: cannot assign to a const variable
+end
+```
+
+Type annotations are supported, just like with `local`:
+
+```luau
+const x: number = 5
+const t: { a: number } = { a = 1 }
+```
+
+Multi-assignment and function declarations work too:
+
+```luau
+const a, b = 1, 2
+
+const function greet(name: string)
+    print(`Hello, {name}!`)
+end
+```
+
+### Binding immutability vs. value immutability
+
+`const` makes the *binding* immutable, but it does not make the *value* immutable. For instance, a `const` variable referring to a table will still allow the table's contents to be mutated:
+
+```luau
+const t = { count = 0 }
+t.count += 1 -- ok: mutating the table's field
+t = {}       -- error: reassigning the binding
+```
+
+To prevent mutation of the table's contents as well, use `table.freeze`:
+
+```luau
+const t = table.freeze({ count = 0 })
+t.count += 1 -- error: mutating a frozen table
+t = {}       -- error: reassigning the binding
+```
+
+### Backwards compatibility
+
+`const` is a contextual keyword, and so is only treated as a keyword in positions where `local` is valid. Existing code that uses `const` as a variable name works:
+
+```luau
+local const = 42 -- still valid
+```
+
 ## If-then-else expressions
 
 In addition to supporting standard if *statements*, Luau adds support for if *expressions*.  Syntactically, `if-then-else` expressions look very similar to if statements.  However instead of conditionally executing blocks of code, if expressions conditionally evaluate expressions and return the value produced as a result. Also, unlike if statements, if expressions do not terminate with the `end` keyword.
@@ -317,3 +384,38 @@ Note that it's possible to get `inf`, `-inf`, or `NaN` with floor division; when
 For native vectors, `c // d` applies `math.floor` to each component of the vector `c`. Therefore `c // d` is equivalent to `vector.create(math.floor(c.x / d), math.floor(c.y / b), math.floor(c.z / b))`.
 
 Floor division syntax and semantics follow from [Lua 5.3](https://www.lua.org/manual/5.3/manual.html#3.4.1) where applicable.
+
+## Attributes
+
+Luau supports attributes on function declarations. An attribute is a `@name` annotation placed before a function that adjusts the behavior of the compiler, analyzer, or runtime.
+Attributes are built into the language and cannot be defined by users.
+
+```luau
+@native
+local function fib(n: number): number
+    if n <= 1 then return n end
+    return fib(n - 1) + fib(n - 2)
+end
+```
+
+Attributes work on all function declaration forms:
+
+```luau
+@native
+function module.process(data)
+    -- ...
+end
+
+local transform = @native function(x) return x * 2 end
+```
+
+Multiple attributes can be placed on the same line:
+
+```luau
+@native @deprecated
+local function legacyCalc(x: number)
+    -- ...
+end
+```
+
+For the full list of available attributes and their parameters, see the [Attributes reference](../attributes).
