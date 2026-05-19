@@ -68,17 +68,11 @@ Retention metrics determine if players are returning to your experience. Three o
 
 ### Monetization metrics
 
-<iframe width="640" height="360" src="https://www.youtube-nocookie.com/embed/L6_HXinYTt0?si=N2nIj9L5wy9C0lBF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
-
-<br />
-
 Monetization metrics indicate much how revenue your experience is generating. Three of the most important monetization metrics are:
 
 - **Average revenue per daily active user (ARPDAU):** ARPDAU is the average amount that players spend in your experience. This is a good snapshot of overall health of the experience. Consider if there are successful systems in your experience that encourage your players to spend.
 - **Conversion rate:** The conversion rate is considered one of the most important metrics. The conversion rate is the percentage of all users who have spent any amount of money at all in your experience. The reason why this is one of the most important metrics is that if a player makes an initial purchase, they are much more likely to make a purchase again in the future. Consider if your monetization practices encourage your players to spend.
 - **Average revenue per paying user (ARPPU):** The ARPPU metric tracks the total amount spent for all players in your experience, known as **spend depth**. This tells you if players in your experience are motivated to spend a lot, a little, or somewhere in between. If this number is low, it's often indicative of purchase item value not being correctly optimized.
-
-To learn how to design systems that increase all of these metrics and encourage players to spend money in your experience, see [Monetization foundations](../../production/game-design/monetization-foundations.md).
 
 ### Segmentation and filtering
 

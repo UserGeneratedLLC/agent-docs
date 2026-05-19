@@ -17,24 +17,12 @@ A designer's role is to create an engaging experience for players, retain those 
     <figcaption>Sketch Series: Onboarding Techniques</figcaption>
   </figure>
   <figure>
-    <iframe width="432" height="243" src="https://www.youtube-nocookie.com/embed/kumeLD2TtRM?si=2nsTV0pia-HxwBPa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
-    <figcaption>Sketch Series: Subscription Design</figcaption>
+    <iframe width="432" height="243" src="https://www.youtube-nocookie.com/embed/LpAU6TheAZ4?si=_1r_ZtlJ3WsrZMUf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+    <figcaption>Sketch Series: Retention Metrics</figcaption>
   </figure>
 </GridContainer>
 
 <br />
-
-<GridContainer numColumns="2">
-
-  <figure>
-  <iframe width="432" height="243" src="https://www.youtube-nocookie.com/embed/L6_HXinYTt0?si=N2nIj9L5wy9C0lBF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
-    <figcaption>Sketch Series: Subscription Design</figcaption>
-  </figure>
- <figure>
-      <iframe width="432" height="243" src="https://www.youtube-nocookie.com/embed/LpAU6TheAZ4?si=_1r_ZtlJ3WsrZMUf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
-    <figcaption>Sketch Series: Retention Metrics</figcaption>
-  </figure>
-</GridContainer>
 
 ## Design your experience
 
@@ -48,14 +36,6 @@ A designer's role is to create an engaging experience for players, retain those 
 - [Onboarding techniques:](../../production/game-design/onboarding-techniques.md) Learn strategies to help direct players through the onboarding funnel as quickly and seamlessly as possible.
 - [Quest design:](../../production/game-design/introduction-to-quest-design.md) Learn how to effectively design quests, achievements, and dailies to increase engagement and retention in your experiences.
 - [UI and UX design:](../../production/game-design/ui-ux-design.md) Learn how to design user interfaces and how to design an intuitive and engaging experience.
-
-## Monetize your experience
-
-- [Monetization foundations:](../../production/game-design/monetization-foundations.md) Learn monetization best practices and shop design to maximize your experience's monetary growth potential.
-- [Season pass design:](../../production/game-design/season-pass-design.md) Learn how to design season passes for your experiences to deliver new content, promote player retention, and generate revenue.
-- [Subscription design:](../../production/game-design/subscription-design.md) Learn how to design recurring purchases that your players look forward to each month.
-- [Contextual purchases:](../../production/game-design/contextual-purchases.md) Learn how to design compelling and unintrusive purchase opportunities that occur outside an experience's shop.
-- [Balance virtual economies:](../../production/game-design/balance-virtual-economies.md) Learn best practices to balance virtual economies when introducing new events.
 
 ## Support your experience
 
