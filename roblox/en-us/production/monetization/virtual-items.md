@@ -41,7 +41,7 @@ There are a variety of item types that are paid random items, including but not 
 
 Under Roblox's [Terms of Use](https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use) and [Community Standards](https://about.roblox.com/community-standards#roblox-economy-paid-random-items), if you offer paid random items that users can purchase with Robux or other in-experience currency purchasable with Robux, you must indicate all possible outcomes and the actual numerical odds of what they may receive.
 
-<img src="../../assets/policy/paid-random-items/Prize-wheel.png" width="100%" alt="An example prize wheel with numerical odds of what users may receive." />
+<img src="../../assets/policy/paid-random-items/Prize-wheel.png" width="70%" alt="An example prize wheel with numerical odds of what users may receive." />
 
 In addition:
 
