@@ -6,9 +6,8 @@ name: Workspace
 type: class
 memory_category: BaseParts
 summary: |
-  **Workspace** houses 3D objects which are rendered to the 3D world. Objects
-  not descending from it will not be rendered or physically interact with the
-  world.
+  `Workspace` houses 3D objects which are rendered to the 3D world. Objects not
+  descending from it will not be rendered or physically interact with the world.
 description: |
   The core job of `Class.Workspace` is to hold objects that exist in the 3D
   world, effectively `Class.BasePart|BaseParts` and
@@ -29,7 +28,7 @@ description: |
   number of useful functions related to parts, their positions, and joints
   between them.
 
-  ##### Accessing the Workspace
+  #### Accessing the Workspace
 
   `Class.Workspace` can be accessed several ways, all of which are valid.
 
@@ -37,7 +36,7 @@ description: |
   - `game:GetService("Workspace")`
   - `game.Workspace`
 
-  ##### Notes
+  #### Notes
 
   - Objects that require adornment, such as
     `Class.ParticleEmitter|ParticleEmitters` and
@@ -804,12 +803,14 @@ properties:
     capabilities: []
   - name: Workspace.PlayerScriptsUseInputActionSystem
     summary: |
-      Controls internal behavior of the built-in `Class.Player` scripts.
+      Controls whether the built-in player scripts are updated to use the Input
+      Action System.
     description: |
-      When `true`, updates the built-in `Class.Player` scripts to a new system
-      where they live under `Class.StarterPlayer`, use the
-      [Input Action System](../../../input/input-action-system.md), and allow
-      the server to process player inputs.
+      Controls whether the built-in player scripts are updated to use the
+      [Input Action System](../../../input/input-action-system.md). When
+      enabled, the player scripts live under `Class.StarterPlayer` (controlled
+      by `Class.StarterPlayer.CreateDefaultPlayerModule`) and the server is able
+      to process player inputs.
     code_samples: []
     type: RolloutState
     tags:

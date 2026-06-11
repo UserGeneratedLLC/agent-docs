@@ -1058,6 +1058,44 @@ properties:
       can_save: true
     capabilities:
       - Players
+  - name: Player.User
+    summary: |
+      The `Datatype.User` representing this player's domain-scoped identity
+      within the current experience.
+    description: |
+      A read-only `Datatype.User` value that represents this player's
+      domain-scoped identity within the current experience. The `Datatype.User`
+      encapsulates the player's domain user ID alongside the domain type and
+      domain ID, providing an unambiguous identifier that carries its context.
+
+      Use this property as the standard way to identify users in new code.
+      Engine APIs that accept user ID parameters also accept `Datatype.User`
+      values directly.
+
+      ```lua
+      local Players = game:GetService("Players")
+
+      Players.PlayerAdded:Connect(function(player)
+          local user = player.User
+          print("Domain user ID:", user.Id)
+          print("Domain type:", user.DomainType)
+          print("Domain ID:", user.DomainId)
+      end)
+      ```
+    code_samples: []
+    type: User
+    tags: []
+    deprecation_message: ''
+    security:
+      read: None
+      write: RobloxEngineSecurity
+    thread_safety: ReadSafe
+    category: Data
+    serialization:
+      can_load: false
+      can_save: false
+    capabilities:
+      - Players
   - name: Player.UserId
     summary: |
       A unique identifying integer assigned to all user accounts.
@@ -2385,13 +2423,6 @@ methods:
       what will be streamed in around the specified location. Client memory
       limits and network conditions may impact what will be available on the
       client.
-
-      #### Usage Precaution
-
-      Requesting streaming around an area is **not a guarantee** that the
-      content will be present when the request completes, as streaming is
-      affected by the client's network bandwidth, memory limitations, and other
-      factors.
     code_samples: []
     parameters:
       - name: position
