@@ -3,10 +3,6 @@ title: Managed pricing
 description: Managed pricing brings regional pricing and price optimization into one unified system in Creator Hub.
 ---
 
-<Alert severity='info'>
-For timelines, latest updates, and roadmap details, see the [DevForum announcement](#).
-</Alert>
-
 **Managed pricing** is a unified system in Creator Hub that combines [price optimization](./price-optimization.md) and [regional pricing](./regional-pricing.md) under a single opt-in. Price optimization helps you find the right price points for your passes and developer products. Regional pricing helps you offer accessible prices to users across different economic regions.
 
 From the **Managed Pricing** tab, you can:
@@ -40,7 +36,7 @@ After opt-in, the **Managed Pricing** tab shows past tests, upcoming tests, and 
 If you are already using regional pricing, your existing regional pricing items transition to managed pricing automatically.
 </Alert>
 
-- **New experiences and newly-created items** are enrolled in Managed pricing by default. Item-level opt-out is available at any time.
+- **New experiences and newly created items** are enrolled in Managed pricing by default. Item-level opt-out is available at any time.
 - **Subscriptions, Private Servers, and Developer Servers** are regionalized automatically and don't require opt-in. Subscriptions are not included in price optimization tests.
 
 ## Price optimization
@@ -51,6 +47,6 @@ For details on [how tests work](./price-optimization.md#how-tests-work), the dyn
 
 ## Regional pricing
 
-Managed pricing uses [regional pricing](./regional-pricing.md) to adjust prices by a user's economic location, using signals like purchasing power, currency exchange rates, and local spending behavior. Regional prices are bound between 30% and 100% of the default price.
+Managed pricing uses [regional pricing](./regional-pricing.md) to adjust prices based on a user's economic location, using signals like purchasing power, currency exchange rates, and local spending behavior. Regional prices are bound between 30% and 100% of the default price.
 
 For details on how economic location is determined, displaying regional prices in your experience, and protecting in-experience trades and gifts with `Class.MarketplaceService.GetUsersPriceLevelsAsync|GetUsersPriceLevelsAsync`, see [regional pricing](./regional-pricing.md).

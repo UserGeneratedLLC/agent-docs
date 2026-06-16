@@ -72,7 +72,7 @@ To use the Managed Pricing price optimization feature:
 1. Go to [Creations](https://create.roblox.com/dashboard/creations) and select an experience.
 2. Go to **Monetization** ⟩ **Managed Pricing**.
 3. Select the developer products and passes you want to include in the price test. For best results, include all products.
-4. Click **Start Test**. Users will see the test prices when they re-join your experience. After approximately 3 weeks, you will receive an e-mail notification that the test is complete. The **Managed Pricing** page will update with the optimized product prices, the recommended price percentage change, and the approximate long-term revenue impact of applying the new product prices.
+4. Click **Start Test**. Users will see the test prices when they re-join your experience. After approximately 3 weeks, you will receive an email notification that the test is complete. The **Managed Pricing** page will update with the optimized product prices, the recommended price percentage change, and the approximate long-term revenue impact of applying the new product prices.
 5. Click **Review & Apply prices** to apply the results of the price optimization test.
 
 You can stop the price optimization test any time by clicking **Stop test** in the **Managed Pricing** page. If you stop the test, your product prices revert to their original prices.

@@ -36,9 +36,6 @@ methods:
       friend. You should always use the result of this method before calling
       `Class.SocialService:PromptPhoneBook()|PromptPhoneBook()` since the
       ability to open the phone book may vary depending on the player.
-
-      See [Roblox Connect](../../../resources/roblox-connect.md) for a sample
-      implementation of this method.
     code_samples:
       - SocialService-PromptPhoneBook
     parameters:
@@ -567,9 +564,6 @@ methods:
 
       If a player is not eligible to open the phone book, an error dialog is
       shown.
-
-      See [Roblox Connect](../../../resources/roblox-connect.md) for a sample
-      implementation of this method.
     code_samples:
       - SocialService-PromptPhoneBook
     parameters:
