@@ -18,7 +18,7 @@ Studio runs the client and server together on your development machine, which is
 
 ## Popular devices in the player base
 
-The majority of Roblox players are on lower-spec mobile devices, with some exceptions for specific genres or competitive games. Understanding the device landscape helps you prioritize what to test, and you can use the [Performance Dashboard](Performance Dashboard) to get more accurate metrics of your player base.
+The majority of Roblox players are on lower-spec mobile devices, with some exceptions for specific genres or competitive games. Understanding the device landscape helps you prioritize what to test, and you can use the [Performance Dashboard](../production/analytics/performance.md) to get more accurate metrics of your player base.
 
 It's important to remember that Roblox is inherently cross-play and that device demographics change across different countries, age groups, genres, and more. To reach the widest audience, your experience needs to perform well across the full range of devices.
 
@@ -67,6 +67,10 @@ Once your experience is live, use the [Performance Dashboard](./monitor.md) to t
 ### User experience
 
 Performance numbers don't tell the full story. An experience can hit 60 FPS on a device and still feel broken if touch targets are too small or UI is unreadable. For comprehensive cross-platform UI guidance, see [Cross-platform development](../projects/cross-platform.md).
+
+<Alert severity="info">
+Windows handhelds like the ROG Xbox Ally offer a lot of utility in user experience testing. In addition to built-in controllers, these devices generally have touchscreens and support input from a mouse and keyboard (most useful when connected to an external display). Windows handhelds tend to have dramatically faster hardware than a midrange phone, though, so they're less valuable for performance testing.
+</Alert>
 
 #### Touch targets and gestures
 
